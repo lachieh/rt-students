@@ -1,0 +1,49 @@
+@import './variables';
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $color--text-medium-dark;
+
+    .secondary-label {
+      color: $color--text-medium;
+      font-size: 12px;
+    }
+  }
+
+  input {
+    width: 250px;
+    border: 0;
+    border-bottom: 1px solid $color--text-medium;
+    padding: 4px 10px;
+
+    &:focus {
+      outline: none;
+      padding-left: 7px;
+      border-left: 3px solid $color--secondary;
+    }
+
+    &.ng-dirty,
+    &.ng-touched {
+      padding-left: 7px;
+      border-left: 3px solid $color--success;
+    }
+
+    &.ng-dirty.ng-invalid,
+    &.ng-touched.ng-invalid {
+      padding-left: 7px;
+      border-left: 3px solid $color--error;
+    }
+  }
+
+  .error {
+    font-size: 12px;
+    display: block;
+    color: $color--error;
+  }
+}

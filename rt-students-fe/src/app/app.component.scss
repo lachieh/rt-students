@@ -1,0 +1,30 @@
+@import '../styles/variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+
+.app-content {
+  width: 75%;
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.app-sidebar {
+  display: block;
+  width: 25%;
+  max-width: 250px;
+  background-image: linear-gradient(
+    to left,
+    rgba($color--bg-dark, 0.05),
+    rgba($color--bg-light, 0.1) 20px
+  );
+}

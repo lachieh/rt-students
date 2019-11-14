@@ -1,0 +1,41 @@
+.button {
+  display: inline-block;
+  background: transparent;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  margin: 10px 10px 0 0;
+  border-radius: 10px;
+  transition: color 150ms ease, background-color 150ms ease;
+
+  &--success {
+    color: $color--success;
+    border-color: $color--success;
+
+    &:hover {
+      background-color: $color--success;
+      color: $color--text-light;
+    }
+  }
+
+  &--error {
+    color: $color--error;
+    border-color: $color--error;
+
+    &:hover {
+      background-color: $color--error;
+      color: $color--text-light;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: $color--text-medium;
+    border-color: $color--text-medium;
+
+    &:hover {
+      color: $color--text-medium;
+      border-color: $color--text-medium;
+    }
+  }
+}

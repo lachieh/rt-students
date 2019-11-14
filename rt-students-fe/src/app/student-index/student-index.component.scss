@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+
+.student-list {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 5px;
+  background-color: $color--bg-light;
+  box-shadow: 0 5px 10px rgba($color--bg-dark, 0.2);
+}
+
+td {
+  padding: 8px 12px;
+}
+
+thead {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: rgba($color--bg-dark, 0.08);
+}
+
+tr {
+  &:hover {
+    background-color: rgba($color--bg-dark, 0.04);
+  }
+}
+
+.action {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+
+  &--edit {
+    svg {
+      stroke: $color--success;
+    }
+  }
+
+  &--delete {
+    .icon {
+      fill: $color--error;
+    }
+  }
+}

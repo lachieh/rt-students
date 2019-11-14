@@ -1,0 +1,205 @@
+<div class="student-detail" *ngIf="student">
+  <h2 class="student-detail__title">Edit Student</h2>
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name: </label>
+      <input
+        id="firstName"
+        formControlName="firstName"
+        placeholder="Albert"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.firstName.invalid &&
+          (studentForm.controls.firstName.dirty ||
+            studentForm.controls.firstName.touched)
+        "
+        >First Name is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name: </label>
+      <input
+        id="lastName"
+        formControlName="lastName"
+        placeholder="Einstein"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.lastName.invalid &&
+          (studentForm.controls.lastName.dirty ||
+            studentForm.controls.lastName.touched)
+        "
+        >Last Name is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input
+        id="email"
+        formControlName="email"
+        placeholder="al.einstein@rtschool.com"
+        required
+      />
+      <div
+        class="error"
+        *ngIf="
+          studentForm.controls.email.invalid &&
+          (studentForm.controls.email.dirty ||
+            studentForm.controls.email.touched)
+        "
+      >
+        <span *ngIf="studentForm.controls.email.errors.required">
+          Email is required
+        </span>
+        <span *ngIf="studentForm.controls.email.errors.email">
+          Email must be valid
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone: </label>
+      <input
+        id="phone"
+        formControlName="phone"
+        placeholder="(404) 123-4567"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.phone.invalid &&
+          (studentForm.controls.phone.dirty ||
+            studentForm.controls.phone.touched)
+        "
+        >Phone is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="address">Address Line 1: </label>
+      <input
+        id="address"
+        formControlName="address"
+        placeholder="123 Main Street"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.address.invalid &&
+          (studentForm.controls.address.dirty ||
+            studentForm.controls.address.touched)
+        "
+        >Address is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="address2"
+        >Address Line 2 <span class="secondary-label">(optional)</span>:
+      </label>
+      <input id="address2" formControlName="address2" placeholder="Apt. 700" />
+    </div>
+    <div class="form-group">
+      <label for="state">State: </label>
+      <input
+        id="state"
+        formControlName="state"
+        placeholder="Georgia"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.state.invalid &&
+          (studentForm.controls.state.dirty ||
+            studentForm.controls.state.touched)
+        "
+        >State is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="city">City: </label>
+      <input id="city" formControlName="city" placeholder="Atlanta" required />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.city.invalid &&
+          (studentForm.controls.city.dirty || studentForm.controls.city.touched)
+        "
+        >City is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="zip">ZIP Code: </label>
+      <input id="zip" formControlName="zip" placeholder="30000" required />
+      <span
+        class="error"
+        *ngIf="
+          studentForm.controls.zip.invalid &&
+          (studentForm.controls.zip.dirty || studentForm.controls.zip.touched)
+        "
+        >ZIP Code is required</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date: </label>
+      <input
+        id="startDate"
+        formControlName="startDate"
+        type="date"
+        required
+        pattern="\d{4}-\d{2}-\d{2}"
+      />
+      <div
+        class="error"
+        *ngIf="
+          studentForm.controls.startDate.invalid &&
+          (studentForm.controls.startDate.dirty ||
+            studentForm.controls.startDate.touched)
+        "
+      >
+        <span *ngIf="studentForm.controls.startDate.errors.required">
+          Start Date is required
+        </span>
+        <span *ngIf="studentForm.controls.startDate.errors.pattern">
+          Start Date must be a valid date
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="graduationDate"
+        >Graduation Date <span class="secondary-label">(optional)</span>:
+      </label>
+      <input
+        id="graduationDate"
+        formControlName="graduationDate"
+        type="date"
+        pattern="\d{4}-\d{2}-\d{2}"
+      />
+      <div
+        class="error"
+        *ngIf="
+          studentForm.controls.graduationDate.invalid &&
+          (studentForm.controls.graduationDate.dirty ||
+            studentForm.controls.graduationDate.touched)
+        "
+      >
+        <span *ngIf="studentForm.controls.graduationDate.errors.pattern">
+          Graduation Date must be a valid date
+        </span>
+      </div>
+    </div>
+    <button
+      class="button button--success"
+      [disabled]="!studentForm.valid"
+      type="submit"
+    >
+      Save
+    </button>
+    <button class="button button--error" (click)="cancel()">Cancel</button>
+  </form>
+</div>
